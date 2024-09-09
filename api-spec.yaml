@@ -84,6 +84,97 @@ paths:
               responses:   # Expected responses to the callback message
                 '200':
                   description: Your server returns this code if it accepts the callback
+  /generate-pdf:
+    post:
+      summary: Generate PDF
+      description: Endpoint to generate a PDF from a URL with Puppeteer options.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filename:
+                  type: string
+                  description: The name of the file to be generated.
+                recordId:
+                  type: string
+                  description: Unique record identifier.
+                path:
+                  type: string
+                  description: The URL to generate the PDF from.
+                  example: https://www.google.com
+                  required: true
+                pageFormat:
+                  type: string
+                  description: The format of the page (e.g., Letter, A4).
+                  example: Letter
+                headless:
+                  type: boolean
+                  description: Flag to run Puppeteer in headless mode.
+                  example: true
+                puppeteerProduct:
+                  type: string
+                  description: Puppeteer product to use (chrome or firefox).
+                  example: chrome
+                revisionInfo:
+                  type: string
+                  description: Information regarding the document revision.
+                incognito:
+                  type: boolean
+                  description: Run browser in incognito mode.
+                  example: false
+                emulateMediaType:
+                  type: string
+                  description: Media type to emulate for print.
+                  example: print
+                width:
+                  type: string
+                  description: Custom page width.
+                height:
+                  type: string
+                  description: Custom page height.
+                margin:
+                  type: string
+                  description: Page margins.
+                scale:
+                  type: number
+                  description: Scale factor for the page.
+                  example: 0
+                displayHeaderFooter:
+                  type: boolean
+                  description: Whether to display header and footer in the PDF.
+                  example: false
+                headerTemplate:
+                  type: string
+                  description: HTML content for the header template.
+                footerTemplate:
+                  type: string
+                  description: HTML content for the footer template.
+                printBackground:
+                  type: boolean
+                  description: Whether to print the background graphics.
+                  example: false
+                landscape:
+                  type: boolean
+                  description: Print in landscape mode.
+                  example: false
+                pageRanges:
+                  type: string
+                  description: Specify page ranges (e.g., '1-5').
+              required:
+                - path
+      responses:
+        '200':
+          description: PDF generated successfully.
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request parameters.
 components:
   responses:
     DeveloperError:

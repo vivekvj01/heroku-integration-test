@@ -302,7 +302,7 @@ module.exports = async function (fastify, opts) {
  */
  fastify.post('/generate-pdf',
     // async=true to apply standard response 201 response or provide custom response handler function
-    {config: {salesforce: {async: unitOfWorkResponseHandler}}},
+    {config: {salesforce: {sync: generatepdf}}},
     async (request, reply) => {
         const { event, context, logger } = request.sdk;
         const org = context.org;
