@@ -21,6 +21,7 @@
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
     "@heroku/salesforce-sdk-nodejs": "^0.3.0-ea",
+    "puppeteer": "^14.0.0",
     "fastify-cli": "^5.9.0"
   },
   "devDependencies": {
