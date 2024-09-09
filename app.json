@@ -1,0 +1,32 @@
+{
+  "name": "Heroku-Salesforce API Fastify App",
+  "description": "Heroku-Salesforce sample integration app with Fastify.",
+  "keywords": [
+  ],
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  },
+  "addons": [
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-heroku-integration-service-mesh"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+      }
+    }
+  }
+}
